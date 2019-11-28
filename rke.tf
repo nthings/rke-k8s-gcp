@@ -8,7 +8,8 @@ resource "null_resource" "rke" {
       ips              = google_compute_instance.rke.*.network_interface.0.access_config.0.nat_ip,
       private_ips      = google_compute_instance.rke.*.network_interface.0.network_ip,
       user             = var.ssh_user,
-      private_key_path = var.ssh_private_key
+      private_key_path = var.ssh_private_key,
+      first_ip         = google_compute_instance.rke[0].network_interface.0.access_config.0.nat_ip
     })}\" > cluster.yml"
   }
 

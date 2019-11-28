@@ -5,10 +5,14 @@ nodes:
     hostname_override: rke-node${index(ips, ip) + 1}
     user: ${user}
     ssh_key_path: ${private_key_path}
+    %{ if first_ip == ip }
     role: 
-      - worker
       - controlplane
       - etcd
+    %{ else }
+    role: 
+      - worker
+    %{ endif }
     labels:
       app: rke-node
   %{ endfor }

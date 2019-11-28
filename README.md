@@ -8,4 +8,4 @@ Create a Kubernetes Cluster with RKE in Google Cloud Platform, import it to a Ra
 - Enjoy a self managed Kubernetes Cluster deployed in minutes.
 
 # See it in action :)
-[![asciicast](https://asciinema.org/a/284181.svg)](https://asciinema.org/a/284181)
+[![asciicast](https://asciinema.org/a/284184.svg)](https://asciinema.org/a/284184)
