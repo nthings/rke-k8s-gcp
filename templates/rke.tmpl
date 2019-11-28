@@ -1,0 +1,20 @@
+nodes:
+  %{ for ip in ips }
+  - address: ${ip}
+    internal_address: ${private_ips[index(ips, ip)]}
+    hostname_override: rke-node${index(ips, ip) + 1}
+    user: ${user}
+    ssh_key_path: ${private_key_path}
+    role: 
+      - worker
+      - controlplane
+      - etcd
+    labels:
+      app: rke-node
+  %{ endfor }
+
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
